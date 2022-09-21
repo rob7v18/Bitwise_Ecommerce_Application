@@ -7,7 +7,7 @@ function Card({ id, image, title, price }) {
       <Link to={`/${id}`}>
         <img src={image} alt={title} className="productDetailImage" />
         <p>{title}</p>
-        <p>${price}</p>
+        <p>${price.toFixed(2)}</p>
       </Link>
 
       <ItemOptions id={id} title={title} src={image} price={price} />

@@ -26,7 +26,6 @@ function Cart() {
             <button
               className="remove-button"
               onClick={() => {
-                console.log(product);
                 removeFromCart({ product });
               }}
             >

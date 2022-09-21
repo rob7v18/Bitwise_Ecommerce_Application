@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import ItemOptions from "../components/ItemOptions";
 
 function ProductDetails() {
-  const { productId } = useParams();
-
+  let { productId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState({});
 

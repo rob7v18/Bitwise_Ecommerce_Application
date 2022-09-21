@@ -17,7 +17,6 @@ function ItemOptions({ id, title, price, src }) {
       <button
         className="button"
         onClick={() => {
-          console.log(id, title, quantity, price, src);
           addToCart({ id, title, quantity, price, src });
         }}
       >
