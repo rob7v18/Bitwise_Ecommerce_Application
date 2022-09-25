@@ -30,7 +30,7 @@ function ProductDetails() {
     <div class="d-flex">
       <div class="row">
         <div class="col-lg-5 col-md-6 col-sm-6 p-5">
-          <img src={product.image} alt={product.title} class="img-responsive" />
+          <img src={product.image} alt={product.title} class="img-fluid" />
         </div>
         <div class="col-7 p-5">
           <h1 class="pb-2">{product.title}</h1>
