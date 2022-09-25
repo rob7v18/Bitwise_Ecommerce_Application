@@ -14,7 +14,6 @@ function ProductDetails() {
           `https://fakestoreapi.com/products/${productId}`
         );
         const data = await response.json();
-        console.log({ data });
         setProduct(data);
       } catch (e) {
       } finally {
@@ -28,16 +27,24 @@ function ProductDetails() {
   }
 
   return (
-    <div>
-      <h1>{product.title}</h1>
-      <img src={product.image} alt={product.title} />
+    <div class="d-flex">
+      <div class="row">
+        <div class="col-lg-5 col-md-6 col-sm-6 p-5">
+          <img src={product.image} alt={product.title} class="img-responsive" />
+        </div>
+        <div class="col-7 p-5">
+          <h1 class="pb-2">{product.title}</h1>
+          <h2>Price: ${product.price}</h2>
 
-      <ItemOptions
-        src={product.image}
-        id={product.id}
-        title={product.title}
-        price={product.price}
-      />
+          <h4 class="pt-5">Description: {product.description}</h4>
+          <ItemOptions
+            src={product.image}
+            id={product.id}
+            title={product.title}
+            price={product.price}
+          />
+        </div>
+      </div>
     </div>
   );
 }

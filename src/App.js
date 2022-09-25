@@ -3,8 +3,6 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { Cart, Checkout, ProductDetails, ProductListings } from "./pages";
 import { Context } from "./context/cartContext";
 import Header from "./components/Header";
-import NavBar from "./components/NavBar";
-import "./App.css";
 
 function App() {
   const [allProducts, setAllProducts] = useState([]);
@@ -14,19 +12,6 @@ function App() {
   const navigate = useNavigate();
   const navigateToHome = () => {
     navigate("/");
-  };
-
-  const uniqueCategories = [...new Set(categories)];
-
-  const filterProducts = ({ category }) => {
-    const updatedList = allProducts.filter(
-      (product) => product.category === category
-    );
-    setProductsList(updatedList);
-  };
-
-  const resetProductsList = () => {
-    setProductsList(allProducts);
   };
 
   useEffect(() => {
@@ -98,18 +83,20 @@ function App() {
         },
       }}
     >
-      <div className="App">
+      <div class="bg-light">
         <Header />
-        <NavBar
-          categories={uniqueCategories}
-          filterProducts={filterProducts}
-          resetProductsList={resetProductsList}
-        />
 
         <Routes>
           <Route
             path="/"
-            element={<ProductListings productsList={productsList} />}
+            element={
+              <ProductListings
+                productsList={productsList}
+                allProducts={allProducts}
+                categories={categories}
+                setProductsList={setProductsList}
+              />
+            }
           />
           <Route path="/:productId" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
